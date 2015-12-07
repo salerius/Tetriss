@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        tetris.cpp
+        tetris.cpp \
+    rectangleinfo.cpp \
+    frame.cpp
 
-HEADERS  += tetris.h
+HEADERS  += tetris.h \
+    rectangleinfo.h \
+    frame.h
 
 FORMS    += tetris.ui
