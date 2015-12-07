@@ -24,6 +24,21 @@ Tetris::Tetris(QWidget *parent) :
         this, SLOT(on_pushButton_clicked()));
 
 
+
+ //   this->setGeometry(0, 0, 640, 480);
+//    horizontalSize = new QLineEdit(this);
+//    verticalSize = new QLineEdit(this);
+    frame = new Frame(this);
+//    horizontalSize->setGeometry(50, 400, 60, 20);
+//    verticalSize->setGeometry(450, 400, 60, 20);
+    frame->setGeometry(200, 100, 200, 300);
+    frame->setFrameStyle(1);
+    frame->setLineWidth(1);
+    connect(this, SIGNAL(onLeftOrRightPressed()), this, SLOT(testSlot()));
+    this->setFocus();
+
+
+
 }
 
 void Tetris::on_custom_button_clicked(bool checked)
@@ -44,5 +59,29 @@ void Tetris::on_pushButton_clicked()
 
 
 
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+        case Qt::Key_Left:
+            emit onLeftOrRightPressed();
+            break;
+        case Qt::Key_Right:
+            emit onLeftOrRightPressed();
+            break;
+        case Qt::Key_Down:
+            emit onTopOrDownPressed();
+            break;
+        case Qt::Key_Up:
+            emit onTopOrDownPressed();
+            break;
+        default:
+            QMainWindow::keyPressEvent(event);
+        }
+}
+
+void MainWindow::testSlot()
+{
+    int x = 10;
+}
 
 

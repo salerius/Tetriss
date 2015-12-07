@@ -16,7 +16,7 @@ class frame : public QFrame
 
 public:
     explicit Frame(QWidget *parent = 0);
-    ~Frame;
+//    ~Frame;
     QList<rectangleinfo> rectangleToDraw;
 
 protected:
